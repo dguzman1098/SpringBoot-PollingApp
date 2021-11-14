@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@CrossOrigin(origins = "http://localhost:3000/polls")
+
 @RestController
 public class PollController {
 
     @Autowired
     private PollService pollService;
 
+    @CrossOrigin(origins = "http://localhost:8080/polls")
     @RequestMapping(value="/polls", method= RequestMethod.GET)
     public ResponseEntity<Iterable<Poll>> getAllPolls() {
         return pollService.getAllPolls();
